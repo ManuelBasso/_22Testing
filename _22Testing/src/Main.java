@@ -10,7 +10,7 @@ public class Main {
         System.out.println("Initial format date: " + date);
 
         //Formatta la data ottenuta in FULL, MEDIUM e SHORT
-        System.out.println("SHORT: " + dateShort(date));
+        System.out.println("SHORT: " + dateShort(null));
         System.out.println("MEDIUM: " + dateMedium(date));
         System.out.println("FULL: " + dateFull(date));
     }
@@ -18,22 +18,24 @@ public class Main {
     public static String dateFull(OffsetDateTime date) {
         if (date == null) {
             return null;
+        } else {
+            return date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
         }
-        return date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));
     }
 
     public static String dateMedium(OffsetDateTime date) {
         if (date == null) {
             return null;
+        } else {
+            return date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
         }
-        return date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
-
     }
 
     public static String dateShort(OffsetDateTime date) {
         if (date == null) {
             return null;
+        } else {
+            return date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
         }
-        return date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
     }
 }
